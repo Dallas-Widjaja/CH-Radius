@@ -106,24 +106,23 @@ test.describe('Radius Superadmin User Tests', () => {
       await expect(locator).toHaveCount(1);
     }
   });
-}
 
-//WIP
-//   test('edit an asset valuations', async ({ page }) => {
-//     await page.goto(BASE_URL);
-//     await page.getByRole('button', { name: 'Assets' }).click();
-//     await verifyHamburger(page);
+  //WIP
+  // test('edit an asset valuations', async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   await page.getByRole('button', { name: 'Assets' }).click();
+  //   await verifyHamburger(page);
 
-//     // Search and select asset
-//     await page.getByRole('textbox', { name: 'Search' }).fill('1 Martin Place Tower');
-//     await page.getByRole('button', { name: 'Save' }).click();
-//     await page.getByRole('button', { name: '1 Martin Place Tower' }).click();
-//     await expect(page).toHaveTitle(/1 Martin Place Tower/);
+  //   // Search and select asset
+  //   await page.getByRole('textbox', { name: 'Search' }).fill('1 Martin Place Tower');
+  //   await page.getByRole('button', { name: 'Save' }).click();
+  //   await page.getByRole('button', { name: '1 Martin Place Tower' }).click();
+  //   await expect(page).toHaveTitle(/1 Martin Place Tower/);
 
-//     // Update asset values
-//     await page.getByRole('spinbutton', { name: 'grossAssetValue' }).fill('741999999');
-//     await page.getByRole('spinbutton', { name: 'capitalisationRatePercent' }).fill('5.75');
-//     await page.getByRole('spinbutton', { name: 'discountRatePercent' }).fill('7.13');
-//   });
+  //   // Update asset values
+  //   await page.getByRole('spinbutton', { name: 'grossAssetValue' }).fill('741999999');
+  //   await page.getByRole('spinbutton', { name: 'capitalisationRatePercent' }).fill('5.75');
+  //   await page.getByRole('spinbutton', { name: 'discountRatePercent' }).fill('7.13');
+  // });
 
-// });
+});
