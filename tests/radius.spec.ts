@@ -24,10 +24,9 @@ async function verifyHamburger(page: Page) {
   ];
 
   // Click on hamburger menu
-  // await page.click("#root > div > nav > div > div.flex.flex-\\[2\\].justify-end > div > button:nth-child(3) > span > svg");
-
+  await page.click('.text-3xl');
   for (const text of expectedSubheadings) {
-    const locator = page.locator('.text-primary', { hasText: text });
+    const locator = page.locator('.ant-dropdown-menu-title-content', { hasText: text });
     await expect(locator).toHaveCount(1);
   }
 }
@@ -107,22 +106,27 @@ test.describe('Radius Superadmin User Tests', () => {
     }
   });
 
-  //WIP
-  // test('edit an asset valuations', async ({ page }) => {
-  //   await page.goto(BASE_URL);
-  //   await page.getByRole('button', { name: 'Assets' }).click();
-  //   await verifyHamburger(page);
+  test('edit an asset valuations', async ({ page }) => {
+    await page.goto(BASE_URL);
+    await page.getByRole('button', { name: 'Assets' }).click();
+    await verifyHamburger(page);
 
-  //   // Search and select asset
-  //   await page.getByRole('textbox', { name: 'Search' }).fill('1 Martin Place Tower');
-  //   await page.getByRole('button', { name: 'Save' }).click();
-  //   await page.getByRole('button', { name: '1 Martin Place Tower' }).click();
-  //   await expect(page).toHaveTitle(/1 Martin Place Tower/);
+    // Search and select asset
+    await page.click('.ant-btn:nth-child(3) svg');
+    await page.click('[name="search"]');
+    await page.fill('[name="search"]', "1 Martin Place Tower");
+    await page.getByRole('button', { name: 'Save' }).click();
+    await page.click('.no-underline:nth-child(1) .m-0'),
 
-  //   // Update asset values
-  //   await page.getByRole('spinbutton', { name: 'grossAssetValue' }).fill('741999999');
-  //   await page.getByRole('spinbutton', { name: 'capitalisationRatePercent' }).fill('5.75');
-  //   await page.getByRole('spinbutton', { name: 'discountRatePercent' }).fill('7.13');
-  // });
+    // Update asset values
+    await page.click('section:nth-child(3) > .mb-8:nth-child(1) .w-32 svg');
+    await page.click('[name="grossAssetValue"]');
+    await page.fill('[name="grossAssetValue"]', "741999999");
+    await page.click('[name="capitalisationRatePercent"]');
+    await page.fill('[name="capitalisationRatePercent"]', "5.75");
+    await page.click('[name="discountRatePercent"]');
+    await page.fill('[name="discountRatePercent"]', "7.13");
+    await page.click('text=Save');
+  });
 
 });
